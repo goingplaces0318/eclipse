@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eclipse Web Design - Professional web development and design services at affordable rates">
+    <meta name="keywords" content="web design, web development, affordable websites, professional web services">
+    <meta name="author" content="Anthony Grillone">
+    <!-- Social media meta tags -->
+    <meta property="og:title" content="Eclipse Web Design">
+    <meta property="og:description" content="Professional web development and design services">
+    <meta property="og:image" content="[Your Logo URL]">
+    <meta name="description" content="Professional web development and design services including custom websites, e-commerce solutions, and mobile applications">
+    <meta name="keywords" content="web design services, custom web development, e-commerce solutions, mobile apps, SEO optimization, web maintenance">
+    <title>Eclipse Web Design</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+        
+   
+    <style>
+       
+       a {
+        text-decoration: none;
+        color: #264e69;
+       }
+       
+       .logo {
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 50px;
+          color: #05314e;
+          text-shadow: 5px 5px 10px black;
+          text-align: center;      
+        }
+
+       header {
+        height:200px;
+        width:100%;
+        background-color: rgba(0, 91, 150, 0.7);
+        box-shadow:10px 10px 10px black;
+        padding:10px;
+        margin: 10px;
+    
+    }
+    
+       nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+    } 
+
+
+       main {
+        flex: 1;
+       }
+
+       body {
+        background-image: url('https://images.unsplash.com/photo-1509978778156-518eea30166b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29sYXIlMjBlY2xpcHNlfGVufDB8fDB8fHww');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        margin: 0;
+        position: relative; 
+        border: inset;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    
+    .foot {
+        background-color: rgba(100, 151, 177, 0.7);
+        width:100%;
+        height: 200px;
+        box-shadow: 10px 10px 10px black;
+        padding: 10px;
+        margin: 10px;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Add these styles to your existing CSS */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 10px;
+        width: 100%;
+        background-color: #05314e;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        box-shadow: 2px 2px 2px black;
+    }
+
+    /* Optional: Animation for when menu is active */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+   
+/* Add these styles to your existing CSS */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(100, 151, 177, 0.7);
+    padding-top: 70px;
+    transition: 0.3s;
+    z-index: 98;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    padding: 15px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: block;
+}
+
+.nav-menu a:hover {
+    color: #6497b1;
+    padding-left: 10px;
+}
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99;
+}
+
+/* Darken background when menu is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 97;
+}
+
+.overlay.active {
+    display: block;
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px;
+    gap: 20px;
+    width: calc(100% - 40px); /* Account for padding */
+    margin: 0 auto;
+}
+.main {
+    height: auto;          /* Change from fixed height */
+    min-height: 450px;     /* Add minimum height */
+    width: calc(100% - 40px); /* Account for padding */
+    background-color: rgba(8, 123, 0, 0.9);
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 1px #000000;
+    font-size: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 10px black;
+    color: #b8f943;
+    overflow-y: auto;      /* Add scroll if content overflows */
+    word-wrap: break-word; /* Prevent text from overflowing horizontally */
+    margin: 0 auto;        /* Center the container */
+}
+
+.left, .right {
+    flex: 1;  /* Makes containers evenly sized */
+    background-color: rgba(255, 255, 255, 0.7);
+    min-height: 400px;  /* Gives them square-like appearance */
+    padding: 20px;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 0;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px #03396c;
+}
+#eclipse-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;  /* Increased for gradient space */
+    height: 120px; /* Increased for gradient space */
+    overflow: hidden;
+    border-radius: 50%;
+    background: transparent;
+    /* Add a radial gradient that matches your header color */
+    -webkit-mask-image: radial-gradient(circle at center, 
+        black 60%, 
+        transparent 100%
+    );
+    mask-image: radial-gradient(circle at center, 
+        black 60%, 
+        transparent 100%
+    );
+}
+
+#sun {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff33b, #fdc70c, #f3903f);
+    box-shadow: 0 0 20px #ffff00;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#moon {
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.8);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.glow {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(255, 255, 100, 0.6);
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Add a gradient overlay to match header */
+#eclipse-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center,
+        transparent 50%,
+        rgba(0, 91, 150, 0.7) 100%
+    );
+    pointer-events: none;
+}
+
+canvas {
+    background: #000;
+    display: block;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        font-size: 14px; /* Smaller font on mobile */
+        padding: 15px;
+    }
+    
+    canvas {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+#eclipseGame {
+    background: #05314e;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    display: block;
+}
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 49, 78, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Add inside your existing <style> tag */
+    .eclipse-loader {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #ffd700;
+    position: relative;
+    animation: eclipse 2s infinite linear;
+    box-shadow: 0 0 50px rgba(255, 255, 100, 0.6);
+}
+
+.eclipse-loader::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #05314e;
+    top: -5%;
+    right: -5%;
+    animation: coverSun 2s infinite linear;
+}
+
+@keyframes eclipse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes coverSun {
+    0% { transform: translateX(-120%); }
+    50% { transform: translateX(0%); }
+    100% { transform: translateX(120%); }
+}
+
+/* Add to your existing style tag */
+main {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+body.loaded main {
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="eclipse-loader"></div>
+    </div>
+    <header>
+        <div id="eclipse-container">
+            <div id="sun"></div>
+            <div class="glow"></div>
+            <div id="moon"></div>
+        </div>
+        <nav>
+        <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+        </div>
+        <div class="overlay"></div>
+<div class="nav-menu">
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+</div>
+        <div class="logo">
+        <a href="home.html"><h1>Eclipse Web Design</h1></a></div>
+        
+        </nav>
+    </header>
+
+    <main>
+      
+        <div class="main">
+        <p><strong>Our Services</strong><br>
+            &nbsp &nbsp Here at Eclipse Web Deisgn, we specialize in creating high-quality, custom-built websites and 
+            applications tailored to your unique business needs. With over a decade of experience in web 
+            design and development, we provide solutions that are visually engaging, user-friendly, and 
+            performance-driven. Whether you're looking for a sleek website, a powerful e-commerce platform,
+             or a dynamic mobile application, we have the expertise to bring your vision to life.
+            <br>
+            <br>
+            <u>Web Design & Development</u>
+            Your website is the digital face of your business, and we ensure it makes a lasting impression.
+             Our web design and development services include:
+            ✔ Custom Website Design – Modern, responsive, and tailored to your brand identity.
+            ✔ E-Commerce Development – Scalable online stores with secure payment integration.
+            ✔ SEO Optimization – Built-in best practices to improve search engine rankings.
+            ✔ Landing Pages & Sales Funnels – High-converting pages designed for lead generation.
+            ✔ Website Maintenance & Support – Ongoing updates, security, and performance monitoring.
+            <br>
+            <br>
+            <u>App Development</u>
+            A well-built mobile or web app can enhance customer engagement and streamline your business operations.
+             Our app development services include:
+            ✔ Custom Web & Mobile Apps – Intuitive, scalable, and designed to meet your business needs.
+            ✔ iOS & Android Development – Native and cross-platform solutions for a seamless user experience.
+            ✔ Progressive Web Apps (PWAs) – Lightweight, fast, and accessible across all devices.
+            ✔ API Integration – Connecting your app with third-party services for enhanced functionality.
+            ✔ UI/UX Design – Beautiful, user-friendly interfaces for the best customer experience.
+            <br>
+            <br>
+            <u>Why Choose Us?</u>
+            We don’t just build websites and apps—we create digital solutions that drive results. Our process is 
+            client-focused, ensuring that your project is completed on time, within budget, and with your goals 
+            at the forefront. Whether you're launching a new business or upgrading your existing digital presence,
+            Eclipse Web Design is here to make it happen.
+            
+            <u>Let’s build something amazing together. Contact us today!</u></p>
+            <br>
+            <em>-Anthony Grillone</em>
+     ...
+        </div>
+      <!-- Add after your .main container in the main section -->
+          <h2 style="color: white; text-align: center;">Catch the Eclipses! Use Arrow Keys to Move</h2>
+          <canvas id="eclipseGame" width="400" height="500"></canvas>
+        
+    </main>
+
+    <footer>
+        <div class="foot">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61573704854349"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 Eclipse Web Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        /* filepath: /home/anthonyg/Comfortability/EclipseWebDesign/Website/services.html */
+// Replace your existing DOMContentLoaded listener with this
+   document.addEventListener('DOMContentLoaded', () => {
+    // Get elements
+    const loadingScreen = document.querySelector('.loading-screen');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const overlay = document.querySelector('.overlay');
+    const mainContent = document.querySelector('main');
+
+    // Loading screen transition
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        document.body.classList.add('loaded');
+    }, 1000);
+
+    // Hamburger menu functionality
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // Rest of your existing code...
+});
+
+    const moon = document.getElementById('moon');
+    const glow = document.querySelector('.glow');
+    
+    // Initial position (completely off to the left)
+    let position = -100;
+    
+    function animateEclipse() {
+      // Reset position when moon has completely passed
+      if (position > 180) {
+        position = -100;
+      }
+      
+      // Move the moon
+      moon.style.left = `${position}px`;
+      
+      // Eclipse effect - create corona glow when moon is directly over sun
+      const eclipsePoint = 10;
+      const distanceFromEclipse = Math.abs(position - eclipsePoint);
+      
+      if (distanceFromEclipse < 20) {
+        // Calculate opacity based on how close to perfect eclipse
+        const opacity = 1 - (distanceFromEclipse / 20);
+        glow.style.opacity = opacity;
+      } else {
+        glow.style.opacity = 0;
+      }
+      
+      // Increment position
+      position += 0.5;
+      
+      // Continue animation
+      requestAnimationFrame(animateEclipse);
+    }
+    
+    // Start the animation
+    animateEclipse();
+
+   
+   
+
+/* Add before closing </body> tag in each page */
+
+
+// Add this to your existing script section
+    const canvas = document.getElementById('eclipseGame');
+    const ctx = canvas.getContext('2d');
+
+    const player = {
+    x: canvas.width / 2,
+    y: canvas.height - 50,
+    width: 50,
+    height: 50,
+    speed: 5,
+    score: 0
+};
+
+    let eclipses = [];
+
+    function drawPlayer() {
+    // Draw telescope/collector
+    ctx.fillStyle = '#333';
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.fillStyle = '#666';
+    ctx.fillRect(player.x + 20, player.y - 10, 10, 10);
+}
+
+    function createEclipse() {
+    const eclipse = {
+        x: Math.random() * (canvas.width - 30),
+        y: -30,
+        size: 30,
+        speed: 2 + Math.random() * 2
+    };
+    eclipses.push(eclipse);
+}
+
+        
+    function drawEclipse(eclipse) {
+    // Sun
+    ctx.beginPath();
+    ctx.arc(eclipse.x + 15, eclipse.y + 15, 15, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffd700';
+    ctx.fill();
+    
+    // Moon shadow
+    ctx.beginPath();
+    ctx.arc(eclipse.x + 20, eclipse.y + 15, 12, 0, Math.PI * 2);
+    ctx.fillStyle = '#333';
+    ctx.fill();
+    
+    // Corona effect
+    ctx.beginPath();
+    ctx.arc(eclipse.x + 15, eclipse.y + 15, 20, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255, 255, 100, 0.3)';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+}
+
+    function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw player
+    drawPlayer();
+    
+    // Update and draw eclipses
+    eclipses.forEach((eclipse, index) => {
+        eclipse.y += eclipse.speed;
+        drawEclipse(eclipse);
+        
+        // Check collision with player
+        if (eclipse.y + 30 > player.y && 
+            eclipse.x + 30 > player.x && 
+            eclipse.x < player.x + player.width) {
+            player.score += 10;
+            eclipses.splice(index, 1);
+        }
+        
+        // Remove if passed bottom
+        if (eclipse.y > canvas.height) {
+            eclipses.splice(index, 1);
+        }
+    });
+    
+    // Draw score
+    ctx.fillStyle = '#b8f943';
+    ctx.font = '20px "Courier New"';
+    ctx.fillText(`Score: ${player.score}`, 10, 30);
+    
+    requestAnimationFrame(gameLoop);
+}
+window.addEventListener("keydown", function(e) {
+    if(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
+// Controls
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && player.x > 0) {
+        player.x -= player.speed;
+        }
+        if (e.key === 'ArrowRight' && player.x < canvas.width - player.width) {
+        player.x += player.speed;
+    }
+});
+
+// Create new eclipses periodically
+setInterval(createEclipse, 2000);
+
+// Start game
+gameLoop();
+
+let gameActive = true;
+let gameStarted = false;
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'p' || e.key === 'P') {
+        gameActive = !gameActive;
+    }
+});
+    </script>
+</body>
+</html>

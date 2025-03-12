@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eclipse Web Design - Professional web development and design services at affordable rates">
+    <meta name="keywords" content="web design, web development, affordable websites, professional web services">
+    <meta name="author" content="Anthony Grillone">
+    <!-- Social media meta tags -->
+    <meta property="og:title" content="Eclipse Web Design">
+    <meta property="og:description" content="Professional web development and design services">
+    <meta property="og:image" content="[Your Logo URL]">
+    <title>Eclipse Web Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+   
+   
+<style>
+ 
+ a {
+    text-decoration: none;
+    color: #264e69;
+   }
+   
+   .logo {
+      font-family: 'VT323', 'DOS', 'Courier New', monospace;
+      font-size: 50px;
+      color: #05314e;
+      text-shadow: 5px 5px 10px black;
+      text-align: center;      
+    }
+
+   header {
+    height:200px;
+    width:100%;
+    background-color: rgba(0, 91, 150, 0.5);
+    box-shadow:10px 10px 10px black;
+    padding:10px;
+    margin: 10px;
+
+}
+
+    nav {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     position: relative;
+    } 
+
+
+   main {
+    flex: 1;
+   }
+
+   .main {
+        height: 475px;
+        width: 100%;
+        background-color: rgba(8, 123, 0, 0.9);
+        font-family: 'Courier New', Courier, monospace;
+        text-shadow: 1px 1px 1px #000000;
+        font-size: 15px;
+        padding: 20px;
+        box-shadow: 10px 10px 10px black;
+        color: #b8f943;
+        margin: 10px;
+    }
+   body {
+     background-image: url('https://images.unsplash.com/photo-1509978778156-518eea30166b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29sYXIlMjBlY2xpcHNlfGVufDB8fDB8fHww');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     min-height: 100vh;
+     margin: 0;
+     position: relative; 
+     border: inset;
+     display: flex;
+     flex-direction: column;
+     padding-bottom: 20px;
+}
+
+.foot {
+    background-color: rgba(100, 151, 177, 0.5);
+    width:100%;
+    height: 200px;
+    box-shadow: 10px 10px 10px black;
+    padding: 10px;
+    margin: 10px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add these styles to your existing CSS */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    height: 10px;
+    width: 100%;
+    background-color: #05314e;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 2px black;
+}
+
+/* Optional: Animation for when menu is active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Add these styles to your existing CSS */
+.nav-menu {
+ position: fixed;
+ top: 0;
+ left: -300px; /* Start off-screen */
+ width: 300px;
+ height: 100vh;
+ background-color: rgba(100, 151, 177, 0.5);
+ padding-top: 70px;
+ transition: 0.3s;
+ z-index: 98;
+ box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu.active {
+left: 0;
+}
+
+.nav-menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.nav-menu li {
+padding: 15px 30px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a {
+ color: white;
+ text-decoration: none;
+ font-size: 1.2rem;
+ transition: 0.3s;
+ display: block;
+}
+
+.nav-menu a:hover {
+ color: #6497b1;
+ padding-left: 10px;
+}
+
+.hamburger {
+ position: fixed;
+ top: 20px;
+ left: 20px;
+ z-index: 99;
+}
+
+/* Darken background when menu is open */
+.overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+ display: none;
+ z-index: 97;
+}
+
+.overlay.active {
+ display: block;
+}
+
+main {
+ display: flex;
+ justify-content: space-between;
+ padding: 20px;
+ gap: 20px;  /* Creates space between containers */
+}
+
+.left, .right {
+ flex: 1;  /* Makes containers evenly sized */
+ background-color: rgba(8, 123, 0, 0.9);
+ min-height: 400px;  /* Gives them square-like appearance */
+ padding: 20px;
+ box-shadow: 10px 10px 10px black;
+ border-radius: 0;
+ margin: 10px;
+ font-family: "JetBrains Mono", monospace;
+ color: #b8f943;
+ font-size: 15px;
+ text-shadow: 1px 1px 1px black;
+}
+
+#eclipse-container {
+ position: absolute;
+ top: 20px;
+ right: 20px;
+ width: 120px;  /* Increased for gradient space */
+ height: 120px; /* Increased for gradient space */
+ overflow: hidden;
+ border-radius: 50%;
+ background: transparent;
+/* Add a radial gradient that matches your header color */
+ -webkit-mask-image: radial-gradient(circle at center, 
+ black 60%, 
+ transparent 100%
+);
+ mask-image: radial-gradient(circle at center, 
+ black 60%, 
+ transparent 100%
+);
+}
+#sun {
+ position: absolute;
+ width: 80px;
+ height: 80px;
+ border-radius: 50%;
+ background: radial-gradient(circle, #fff33b, #fdc70c, #f3903f);
+ box-shadow: 0 0 20px #ffff00;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+}
+
+
+#moon {
+position: absolute;
+width: 84px;
+height: 84px;
+border-radius: 50%;
+background-color: #333;
+box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.8);
+top: 50%;
+transform: translateY(-50%);
+}
+.glow {
+ position: absolute;
+ width: 96px;
+ height: 96px;
+ border-radius: 50%;
+ background: transparent;
+ box-shadow: 0 0 40px rgba(255, 255, 100, 0.6);
+ opacity: 0;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+}
+
+
+#eclipse-container::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: radial-gradient(circle at center,
+ transparent 50%,
+ rgba(0, 91, 150, 0.7) 100%
+);
+ pointer-events: none;
+}
+
+
+   
+    
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(5, 49, 78, 0.95);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .loading-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .eclipse-loader {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #ffd700;
+        position: relative;
+        animation: eclipse 2s infinite linear;
+        box-shadow: 0 0 50px rgba(255, 255, 100, 0.6);
+    }
+
+    .eclipse-loader::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #05314e;
+        top: -5%;
+        right: -5%;
+        animation: coverSun 2s infinite linear;
+    }
+
+    @keyframes eclipse {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes coverSun {
+        0% { transform: translateX(-120%); }
+        50% { transform: translateX(0%); }
+        100% { transform: translateX(120%); }
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="eclipse-loader"></div>
+    </div>   
+    <header>
+        <div id="eclipse-container">
+            <div id="sun"></div>
+            <div class="glow"></div>
+            <div id="moon"></div>
+          </div>
+        <nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="overlay"></div>
+<div class="nav-menu">
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+</div>
+            <div class="logo">
+           <a href="home.html"><h1>Eclipse Web Design</h1></a></div>
+        
+        </nav>
+    </header>
+
+    <main>
+        <div class="main">
+            <p>&nbsp &nbsp At Eclipse Web Design, we are passionate about crafting exceptional digital experiences that empower
+                 businesses to thrive online. With over a decade of hands-on experience in web development 
+                 and a formal education in web design, we bring a deep understanding of both the technical 
+                 and creative aspects of building high-performing websites.
+
+                Our expertise spans across custom website development, UX/UI design,
+                 responsive layouts, and SEO-driven solutions. Whether you're a startup 
+                 looking to establish your online presence or an established brand seeking 
+                 a modern refresh, we are committed to delivering websites that are not only 
+                 visually striking but also strategically built to drive engagement and conversions.
+                
+                We believe professional web design should be accessible and affordable. That’s why we 
+                take a client-first approach—offering tailored solutions that align with your goals,
+                 budget, and brand identity. With a keen eye for detail, a commitment to innovation, 
+                 and a focus on results, Eclipse Web Design is your trusted partner in the digital space.
+                
+                Let’s build something amazing together.</p>
+                
+                <em><p>Ready to elevate your online presence? Contact us today!...</p></em>
+               
+       </div>
+    </main>
+    <footer>
+        <div class="foot">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61573704854349"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 Eclipse Web Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const overlay = document.querySelector('.overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+});
+
+    const moon = document.getElementById('moon');
+    const glow = document.querySelector('.glow');
+    
+    // Initial position (completely off to the left)
+    let position = -100;
+    
+    function animateEclipse() {
+      // Reset position when moon has completely passed
+      if (position > 180) {
+        position = -100;
+      }
+      
+      // Move the moon
+      moon.style.left = `${position}px`;
+      
+      // Eclipse effect - create corona glow when moon is directly over sun
+      const eclipsePoint = 10;
+      const distanceFromEclipse = Math.abs(position - eclipsePoint);
+      
+      if (distanceFromEclipse < 20) {
+        // Calculate opacity based on how close to perfect eclipse
+        const opacity = 1 - (distanceFromEclipse / 20);
+        glow.style.opacity = opacity;
+      } else {
+        glow.style.opacity = 0;
+      }
+      
+      // Increment position
+      position += 0.5;
+      
+      // Continue animation
+      requestAnimationFrame(animateEclipse);
+    }
+    
+    // Start the animation
+    animateEclipse();
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get elements
+        const loadingScreen = document.querySelector('.loading-screen');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const overlay = document.querySelector('.overlay');
+        const moon = document.getElementById('moon');
+        const glow = document.querySelector('.glow');
+
+        // Loading screen transition
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 1000);
+
+        // ...rest of your existing JavaScript...
+    });
+
+/* Add before closing </body> tag in each page */
+
+</script>
+</body>
+</html>
